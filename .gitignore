@@ -54,3 +54,6 @@ package.json
 
 # script files
 *.sh
+
+#venv
+odoo_venv/
