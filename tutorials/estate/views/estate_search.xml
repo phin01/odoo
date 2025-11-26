@@ -11,11 +11,8 @@
                 <field name="bedrooms"/>
                 <field name="living_area"/>
                 <field name="facades"/>
-                <separator/>
                 <filter string="Available" name="available" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]"/>
-                <group expand="1" string="Group By Postcode">
-                    <filter string="Postcode" name="group_postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>
-                </group>
+                <filter string="Postcode" name="group_postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>
             </search>
         </field>
     </record>
