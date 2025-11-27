@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <list string="Channel">
                 <field name="name" string="Title"/>
+                <field name="property_type_id" string="Property Type"/>
                 <field name="postcode" string="Postcode"/>
                 <field name="bedrooms" string="Bedrooms"/>
                 <field name="living_area" string="Living Area (sqm)"/>
