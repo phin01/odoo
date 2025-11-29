@@ -51,6 +51,16 @@
                                 </div>
                             </div>
                         </page>
+                        <page string="Other Info">
+                            <div class="row">
+                                <div class="col-6">
+                                    <group>
+                                        <field name="salesperson_id" string="Salesperson" />
+                                        <field name="buyer_id" string="Buyer" />
+                                    </group>
+                                </div>
+                            </div>
+                        </page>
                     </notebook>
                     
                 </sheet>
