@@ -11,8 +11,11 @@
                 </header>
                 <sheet>
                     <div class="row mb-6">
-                        <div class="col-6">
+                        <div class="col-12">
                             <field name="name" nolabel="False" class="oe_inline h1" />
+                        </div>
+                        <div class="col-6">
+                            Tags: <field name="property_tag_ids" widget="many2many_tags" />
                         </div>
                     </div>
 
