@@ -17,6 +17,15 @@ class EstatePropertyOffer(models.Model):
 
 
     # ---------------------------------------
+    # CONSTRAINTS
+    # ---------------------------------------
+
+    _positive_offer_price = models.Constraint(
+        definition='CHECK(price > 0)',
+        message='Offer price must be positive.')
+
+
+    # ---------------------------------------
     # COMPUTE METHODS
     # ---------------------------------------
 

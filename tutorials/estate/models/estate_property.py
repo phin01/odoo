@@ -46,6 +46,19 @@ class EstateProperty(models.Model):
 
 
     # ---------------------------------------
+    # CONSTRAINTS
+    # ---------------------------------------
+
+    _positive_expected_price = models.Constraint(
+        definition='CHECK(expected_price >= 0)',
+        message='Expected price must be positive.')
+    
+    _positive_selling_price = models.Constraint(
+        definition='CHECK(selling_price >= 0)',
+        message='Selling price must be positive.')
+
+
+    # ---------------------------------------
     # COMPUTE METHODS
     # ---------------------------------------
     
