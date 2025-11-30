@@ -8,6 +8,8 @@
     
             <form string="Estate Property">
                 <header>
+                    <button name="action_set_sold" string="Set as Sold" type="object" class="btn-success" />
+                    <button name="action_set_canceled" string="Set as Canceled" type="object" class="btn-danger"/>
                 </header>
                 <sheet>
                     <div class="row mb-6">
@@ -22,6 +24,7 @@
                     <div class="row mb-6">
                         <div class="col-4">
                             <group>
+                                <field name="state" string="State of Property" />
                                 <field name="property_type_id" string="Type" />
                                 <field name="postcode" string="Postcode" />
                                 <field name="date_availability" string="Available From" />
@@ -50,7 +53,6 @@
                                         <field name="garden_area" string="Garden Area (sqm)" />
                                         <field name="garden_orientation" string="Garden Orientation" />
                                         <field name="total_area" string="Total Area (sqm)" />
-                                        <field name="state" string="State of Property" />
                                         <field name="active" string="Active" />
                                     </group>
                                 </div>
