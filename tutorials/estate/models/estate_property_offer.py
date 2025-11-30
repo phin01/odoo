@@ -37,3 +37,20 @@ class EstatePropertyOffer(models.Model):
                 delta = (record.date_deadline - fields.Date.today()).days
                 record.validity = delta
     
+
+    # ---------------------------------------
+    # BUTTON ACTIONS
+    # ---------------------------------------
+
+    def action_accept_offer(self):
+        for record in self:
+            record.status = 'accepted'
+            record.property_id.selling_price = record.price
+            record.property_id.buyer_id = record.partner_id
+            record.property_id.state = 'offer_accepted'
+            # Refuse all other offers
+            record.property_id.property_offer_ids.filtered(lambda o: o.id != record.id).action_refuse_offer()
+
+    def action_refuse_offer(self):
+        for record in self:
+            record.status = 'refused'
