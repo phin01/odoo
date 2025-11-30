@@ -54,6 +54,9 @@
                                 </div>
                             </div>
                         </page>
+                        <page string="Offers">
+                            <field name="property_offer_ids" />
+                        </page>
                         <page string="Other Info">
                             <div class="row">
                                 <div class="col-6">
