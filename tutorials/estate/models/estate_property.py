@@ -62,3 +62,19 @@ class EstateProperty(models.Model):
                 record.best_price = 0.0
 
     
+    # ---------------------------------------
+    # ONCHANGE BEHAVIOR
+    # ---------------------------------------
+    
+    @api.onchange('garden')
+    def _onchange_garden(self):
+        if self.garden:
+            self.garden_area = 10
+            self.garden_orientation = 'north'
+            return {'warning': {
+                'title': ("Garden Reset"),
+                'message': ('Garden area and orientation have been reset')}}
+
+        else:
+            self.garden_area = 0
+            self.garden_orientation = False
