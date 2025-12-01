@@ -10,6 +10,7 @@
                 <header>
                     <button name="action_set_sold" string="Set as Sold" type="object" class="btn-success" />
                     <button name="action_set_canceled" string="Set as Canceled" type="object" class="btn-danger"/>
+                    <field name="state" string="State of Property" widget="statusbar" statusbar_visible="new,offer_received,offer_accepted,sold" />
                 </header>
                 <sheet>
                     <div class="row mb-6">
@@ -24,7 +25,7 @@
                     <div class="row mb-6">
                         <div class="col-4">
                             <group>
-                                <field name="state" string="State of Property" />
+                                <!--<field name="state" string="State of Property" />-->
                                 <field name="property_type_id" string="Type" />
                                 <field name="postcode" string="Postcode" />
                                 <field name="date_availability" string="Available From" />
