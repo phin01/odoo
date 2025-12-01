@@ -19,7 +19,7 @@
                             <div class="row mb-6">
                                 <div class="col-12">
                                     <field name="property_ids">
-                                        <list string="Properties">
+                                        <list string="Properties" create="false" edit="false" delete="false">
                                             <field name="name"/>
                                             <field name="expected_price"/>
                                             <field name="state"/>
