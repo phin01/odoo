@@ -53,8 +53,8 @@ class EstatePropertyOffer(models.Model):
 
     def action_accept_offer(self):
         for record in self:
+            record.property_id.selling_price = record.price   # triggers selling price validation before any state change
             record.status = 'accepted'
-            record.property_id.selling_price = record.price
             record.property_id.buyer_id = record.partner_id
             record.property_id.state = 'offer_accepted'
             # Refuse all other offers

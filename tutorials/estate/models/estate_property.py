@@ -1,5 +1,6 @@
 from odoo import fields, models, api
 from odoo.exceptions import UserError
+from odoo.tools.float_utils import float_compare
 
 class EstateProperty(models.Model):
     _name = "estate.property"
@@ -56,6 +57,12 @@ class EstateProperty(models.Model):
     _positive_selling_price = models.Constraint(
         definition='CHECK(selling_price >= 0)',
         message='Selling price must be positive.')
+    
+    @api.constrains('selling_price', 'expected_price')
+    def _check_selling_price(self):
+        for record in self:
+            if record.selling_price and float_compare(record.selling_price, record.expected_price * 0.9, precision_digits=2) == -1:
+                raise UserError("Selling price cannot be lower than 90% of the expected price.")
 
 
     # ---------------------------------------
