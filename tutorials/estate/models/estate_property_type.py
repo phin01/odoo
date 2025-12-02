@@ -6,6 +6,7 @@ class EstatePropertyType(models.Model):
     _order = "name asc"
 
     name = fields.Char(required=True)
+    sequence = fields.Integer()
     property_ids = fields.One2many(
         comodel_name='estate.property',
         inverse_name='property_type_id',
