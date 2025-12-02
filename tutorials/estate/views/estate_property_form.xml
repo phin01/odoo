@@ -18,7 +18,7 @@
                             <field name="name" nolabel="False" class="oe_inline h1" />
                         </div>
                         <div class="col-6">
-                            Tags: <field name="property_tag_ids" widget="many2many_tags" />
+                            Tags: <field name="property_tag_ids" widget="many2many_tags" options="{'no_create': true}" />
                         </div>
                     </div>
 
@@ -26,7 +26,7 @@
                         <div class="col-4">
                             <group>
                                 <!--<field name="state" string="State of Property" />-->
-                                <field name="property_type_id" string="Type" />
+                                <field name="property_type_id" string="Type" options="{'no_create': true}" />
                                 <field name="postcode" string="Postcode" />
                                 <field name="date_availability" string="Available From" />
                             </group>
@@ -66,8 +66,8 @@
                             <div class="row">
                                 <div class="col-6">
                                     <group>
-                                        <field name="salesperson_id" string="Salesperson" />
-                                        <field name="buyer_id" string="Buyer" />
+                                        <field name="salesperson_id" string="Salesperson" options="{'no_create': true}" />
+                                        <field name="buyer_id" string="Buyer" options="{'no_create': true}"/>
                                     </group>
                                 </div>
                             </div>
