@@ -1,4 +1,5 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
+from odoo.exceptions import UserError
 
 class EstatePropertyOffer(models.Model):
     _name = "estate.property.offer"
@@ -64,3 +65,18 @@ class EstatePropertyOffer(models.Model):
     def action_refuse_offer(self):
         for record in self:
             record.status = 'refused'
+
+
+    # ---------------------------------------
+    # METHOD OVERRIDES
+    # ---------------------------------------
+
+    @api.model
+    def create(self, vals):
+        property_id = vals[0].get('property_id')
+        if property_id:
+            property_record = self.env['estate.property'].browse(property_id)
+            if property_record.state not in ['new', 'offer_received']:
+                raise UserError(_("Offer not allowed: Cannot make an offer on a property that is not new or in offer received state."))
+        
+        return super().create(vals)
