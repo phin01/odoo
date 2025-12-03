@@ -8,8 +8,10 @@
     
             <form string="Estate Property">
                 <header>
-                    <button name="action_set_sold" string="Set as Sold" type="object" class="btn-success" />
-                    <button name="action_set_canceled" string="Set as Canceled" type="object" class="btn-danger"/>
+                    <group invisible="state in ['canceled', 'sold']">
+                        <button name="action_set_sold" string="Set as Sold" type="object" class="btn-success"  invisible="state not in['offer_accepted']" confirm="Mark property as Sold? This cannot be undone"  />
+                        <button name="action_set_canceled" string="Set as Canceled" type="object" class="btn-danger" confirm="Mark property as cancelled? This cannot be undone"/>
+                    </group>
                     <field name="state" string="State of Property" widget="statusbar" statusbar_visible="new,offer_received,offer_accepted,sold" />
                 </header>
                 <sheet>
@@ -51,8 +53,8 @@
                                         <field name="facades" string="Facades" />
                                         <field name="garage" string="Garage" />
                                         <field name="garden" string="Garden" />
-                                        <field name="garden_area" string="Garden Area (sqm)" />
-                                        <field name="garden_orientation" string="Garden Orientation" />
+                                        <field name="garden_area" string="Garden Area (sqm)" invisible="not garden"/>
+                                        <field name="garden_orientation" string="Garden Orientation" invisible="not garden"/>
                                         <field name="total_area" string="Total Area (sqm)" />
                                         <field name="active" string="Active" />
                                     </group>
@@ -60,7 +62,7 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="property_offer_ids" />
+                            <field name="property_offer_ids" readonly="state in ['canceled', 'sold', 'offer_accepted']" />
                         </page>
                         <page string="Other Info">
                             <div class="row">

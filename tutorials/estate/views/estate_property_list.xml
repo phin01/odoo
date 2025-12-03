@@ -5,7 +5,10 @@
         <field name="name">estate.property.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Channel">
+            <list string="Channel" 
+                    decoration-success="state in ['offer_accepted']" 
+                    decoration-danger="state == 'canceled'"
+                    decoration-muted="state == 'sold'"                    >
                 <field name="name" string="Title"/>
                 <field name="property_type_id" string="Property Type"/>
                 <field name="postcode" string="Postcode"/>
