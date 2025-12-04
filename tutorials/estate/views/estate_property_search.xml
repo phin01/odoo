@@ -12,6 +12,7 @@
                 <field name="living_area"/>
                 <field name="facades"/>
                 <field name="property_type_id"/>
+                <field name="living_area" string="Living Area" filter_domain="[('living_area', '&gt;=', self)]" />
                 <filter string="Available" name="available" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]"/>
                 <filter string="Postcode" name="group_postcode" context="{'group_by':'postcode', 'residual_visible':True}"/>
             </search>
