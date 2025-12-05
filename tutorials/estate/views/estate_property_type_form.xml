@@ -8,6 +8,10 @@
         
             <form string="Property Type">
                 <sheet>
+                    <header>
+                        <button string="View Offers" type="action" class="oe_stat_button"
+                            name="%(action_estate_property_offer_view_all)d"/>
+                    </header>
                     <div class="row mb-6">
                         <div class="col-12">
                             <field name="name" nolabel="False" class="oe_inline h1" />
