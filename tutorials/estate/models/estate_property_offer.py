@@ -80,5 +80,7 @@ class EstatePropertyOffer(models.Model):
             property_record = self.env['estate.property'].browse(property_id)
             if property_record.state not in ['new', 'offer_received']:
                 raise UserError(_("Offer not allowed: Cannot make an offer on a property that is not new or in offer received state."))
+            if property_record.state == 'new':
+                property_record.state = 'offer_received'
         
         return super().create(vals)
