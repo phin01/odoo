@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="estate_property_kanban_view" model="ir.ui.view">
+        <field name="name">estate.property.kanban</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <div>
+                            <field name="name"/>
+                            <div t-if="record.state.raw_value == 'new'">
+                                New Property!
+                            </div>
+                            <div>
+                                <field name="expected_price"/>
+                            </div>
+                            <div>
+                                <field name="selling_price"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>
